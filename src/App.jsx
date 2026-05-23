@@ -1,123 +1,85 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+// getAsteroids();
+// export default function App(){
+//   return(
+//     <div>
+//       <h1>Artyom</h1>
+//     </div>
+//   )
+// }
+import './App.css'
+import { useState, useEffect} from 'react'
+
+const  mission = "Artyom"
+const  crew =  7
+
+/* return(
+  <div>
+    <h1>{mission}</h1>
+    <p>crew:{crew}</p>
+    <p>Days remaining:{10 -3}</p>
+  </div>
+) */
+
+
+export default function App() {
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
 
-      <div className="ticks"></div>
+    <div className="dashboard">
+      <h1>My Dashboard</h1>
+      <p>May 20, 2026</p>
+      <ISSCard/>
+      <Artyom/>   
+      <PeopleInSpace/>
+    </div>
+    
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
   )
 }
 
-export default App
+function ISSCard() {
+  return (
+    <div className="card">
+      <h2>ISS Position</h2>
+      <p>Latitude: 42.36</p>
+      <p>Longitude: -71.05</p>
+    </div>  
+  )
+}
+
+
+function Artyom() {
+  return (
+    <div className="Artyom">
+      <h2>Hello</h2>
+      <p>Latitude: 42.36</p>
+      <p>Longitude: -71.05</p>
+    </div>
+  )
+}
+
+function PeopleInSpace() {
+  const [people, setPeople] = useState(null)
+  useEffect(() => {
+    fetch('http://api.open-notify.org/astros.json')
+      .then(r => r.json())
+      .then(data => setPeople(data.people))
+  }, [])
+
+return (
+  <div className="card">
+  <h2>People in Space</h2>
+  {people ? (
+    <ul>
+    {people.map(person => (
+      <li key={person.name}>
+      {person.name} — {person.craft}
+      </li>
+    ))}
+    </ul>
+  ) : <p>Loading...</p>}
+  </div>
+  )
+}
 
