@@ -1,4 +1,4 @@
-
+/* 
 body {
   background: #000000;
   color: rgb(211, 152, 152);
@@ -52,4 +52,371 @@ body {
 
 .warning {
   color: #ef4444;
+} */
+
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #020617;
+  color: white;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+.dashboard {
+  min-height: 100vh;
+  padding: 30px;
+  max-width: 1400px;
+  margin: auto;
+
+  background:
+    radial-gradient(circle at top,
+      #0f172a 0%,
+      #020617 60%);
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.logo {
+  font-size: 55px;
+  color: #38bdf8;
+  font-weight: bold;
+}
+
+.live {
+  color: #4ade80;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.top-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.7fr 1fr;
+  gap: 25px;
+  align-items: start;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+  background: rgba(15, 23, 42, 0.95);
+
+  border-radius: 28px;
+
+  padding: 24px;
+
+  backdrop-filter: blur(10px);
+
+  transition: 0.3s;
+
+  height: 550px;
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.01);
+}
+
+/* =========================
+   ISS
+========================= */
+
+.iss-card {
+  border: 2px solid orange;
+
+  box-shadow:
+    0 0 20px rgba(255, 166, 0, 0.5),
+    0 0 60px rgba(255, 166, 0, 0.2);
+
+  overflow-y: auto;
+
+  scrollbar-width: thin;
+}
+.iss-card::-webkit-scrollbar {
+  width: 8px;
+}
+
+.iss-card::-webkit-scrollbar-track {
+  background: #0f172a;
+  border-radius: 20px;
+}
+
+.iss-card::-webkit-scrollbar-thumb {
+  background: orange;
+  border-radius: 20px;
+}
+.iss-card h2 {
+  color: #38bdf8;
+  font-size: 38px;
+}
+
+.earth-image {
+  width: 100%;
+  height: 260px;
+
+  object-fit: cover;
+
+  border-radius: 22px;
+
+  margin-top: 25px;
+}
+
+.coordinates {
+  margin-top: 30px;
+
+  font-size: 34px;
+
+  line-height: 70px;
+}
+
+.green {
+  color: #4ade80;
+}
+
+/* =========================
+   PEOPLE
+========================= */
+
+.people-card {
+  border: 2px solid #22c55e;
+
+  box-shadow:
+    0 0 20px #22c55e55,
+    0 0 60px #22c55e22;
+}
+
+.people-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.people-card h2 {
+  color: #4ade80;
+  font-size: 38px;
+}
+
+.people-count {
+  background: #14532d;
+
+  padding: 14px 26px;
+
+  border-radius: 999px;
+
+  font-size: 24px;
+
+  font-weight: bold;
+}
+.people-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.people-list::-webkit-scrollbar-track {
+  background: #0f172a;
+  border-radius: 20px;
+}
+
+.people-list::-webkit-scrollbar-thumb {
+  background: #22c55e;
+  border-radius: 20px;
+}
+.people-list {
+  margin-top: 25px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  max-height: 420px;
+
+  overflow-y: auto;
+
+  padding-right: 10px;
+}
+.person {
+  background: #111827;
+
+  border-radius: 20px;
+
+  padding: 24px;
+
+  border: 1px solid #1f2937;
+
+  transition: 0.3s;
+}
+
+.person:hover {
+  transform: scale(1.02);
+
+  border-color: #22c55e;
+}
+
+.person h3 {
+  font-size: 28px;
+
+  margin-bottom: 10px;
+}
+
+.person p {
+  color: #9ca3af;
+
+  font-size: 22px;
+}
+
+/* =========================
+   ASTEROIDS
+========================= */
+.asteroid-card {
+  border: 2px solid orange;
+
+  box-shadow:
+    0 0 20px rgba(255, 166, 0, 0.5),
+    0 0 60px rgba(255, 166, 0, 0.2);
+
+  overflow-y: auto;
+
+  scrollbar-width: thin;
+}
+.asteroid-card::-webkit-scrollbar {
+  width: 8px;
+}
+
+.asteroid-card::-webkit-scrollbar-track {
+  background: #0f172a;
+  border-radius: 20px;
+}
+
+.asteroid-card::-webkit-scrollbar-thumb {
+  background: orange;
+  border-radius: 20px;
+}
+.asteroid-card h2 {
+  color: orange;
+  font-size: 38px;
+}
+
+.asteroid {
+  background: #111827;
+
+  border-radius: 20px;
+
+  padding: 20px;
+
+  margin-top: 20px;
+
+  border: 1px solid #1f2937;
+}
+
+.asteroid h3 {
+  font-size: 26px;
+}
+
+.asteroid p {
+  font-size: 20px;
+}
+
+.hazard {
+  color: red;
+  font-weight: bold;
+}
+
+.safe {
+  color: #4ade80;
+  font-weight: bold;
+}
+
+/* =========================
+   PHOTO
+========================= */
+
+.photo-section {
+  margin-top: 30px;
+
+  background: rgba(15, 23, 42, 0.95);
+
+  border: 2px solid #9333ea;
+
+  border-radius: 30px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 0 20px #9333ea66,
+    0 0 60px #9333ea22;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+}
+
+.photo-grid img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.photo-content {
+  padding: 40px;
+}
+
+.photo-content h2 {
+  color: #c084fc;
+
+  font-size: 38px;
+
+  margin-bottom: 20px;
+}
+
+.photo-content h1 {
+  font-size: 52px;
+
+  margin-bottom: 25px;
+}
+
+.photo-content p {
+  color: #d1d5db;
+
+  font-size: 22px;
+
+  line-height: 42px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1200px) {
+
+  .top-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .logo {
+    font-size: 38px;
+  }
+
+  .card {
+    min-height: auto;
+  }
 }
