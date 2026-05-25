@@ -147,18 +147,31 @@ body {
 
   scrollbar-width: thin;
 }
-.iss-card::-webkit-scrollbar {
+.iss-list::-webkit-scrollbar {
   width: 8px;
 }
 
-.iss-card::-webkit-scrollbar-track {
+.iss-list::-webkit-scrollbar-track {
   background: #0f172a;
   border-radius: 20px;
 }
 
-.iss-card::-webkit-scrollbar-thumb {
-  background: orange;
+.iss-list::-webkit-scrollbar-thumb {
+  background: #22c55e;
   border-radius: 20px;
+}
+.iss-list {
+  margin-top: 25px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  max-height: 420px;
+
+  overflow-y: auto;
+
+  padding-right: 10px;
 }
 .iss-card h2 {
   color: #38bdf8;
@@ -353,13 +366,27 @@ body {
 
   border-radius: 30px;
 
-  overflow: hidden;
+  overflow-y: auto;
+
+  height: 550px;
 
   box-shadow:
     0 0 20px #9333ea66,
     0 0 60px #9333ea22;
 }
+.photo-section::-webkit-scrollbar {
+  width: 8px;
+}
 
+.photo-section::-webkit-scrollbar-track {
+  background: #0f172a;
+  border-radius: 20px;
+}
+
+.photo-section::-webkit-scrollbar-thumb {
+  background: #9333ea;
+  border-radius: 20px;
+}
 .photo-grid {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
@@ -420,3 +447,131 @@ body {
     min-height: auto;
   }
 }
+/* =========================
+   SOLAR SYSTEM
+========================= */
+
+.solar-system {
+  margin-top: 30px;
+
+  background: rgba(15, 23, 42, 0.95);
+
+  border: 2px solid #facc15;
+
+  border-radius: 30px;
+
+  padding: 40px;
+
+  box-shadow:
+    0 0 20px #facc1566,
+    0 0 60px #facc1522;
+}
+
+.solar-system h2 {
+  color: #facc15;
+
+  font-size: 42px;
+
+  margin-bottom: 40px;
+
+  text-align: center;
+}
+
+.planets {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 20px;
+}
+
+.planet {
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: white;
+
+  font-weight: bold;
+
+  animation: float 3s ease-in-out infinite;
+}
+
+.planet span {
+  margin-top: 120px;
+
+  font-size: 18px;
+}
+
+/* PLANETS */
+
+.mercury {
+  width: 60px;
+  height: 60px;
+  background: gray;
+}
+
+.venus {
+  width: 90px;
+  height: 90px;
+  background: #d97706;
+}
+
+.earth {
+  width: 100px;
+  height: 100px;
+  background: #2563eb;
+}
+
+.mars {
+  width: 80px;
+  height: 80px;
+  background: #dc2626;
+}
+
+.jupiter {
+  width: 150px;
+  height: 150px;
+  background: #b45309;
+}
+
+.saturn {
+  width: 140px;
+  height: 140px;
+  background: #ca8a04;
+  position: relative;
+}
+
+.saturn::before {
+  content: "";
+
+  position: absolute;
+
+  width: 190px;
+  height: 190px;
+
+  border: 4px solid #fde68a;
+
+  border-radius: 50%;
+}
+
+.uranus {
+  width: 110px;
+  height: 110px;
+  background: #67e8f9;
+}
+
+.neptune {
+  width: 105px;
+  height: 105px;
+  background: #1d4ed8;
+}
+

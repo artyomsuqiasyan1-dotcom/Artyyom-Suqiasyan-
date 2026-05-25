@@ -1,64 +1,4 @@
 
-// // getAsteroids();
-// // export default function App(){
-// //   return(
-// //     <div>
-// //       <h1>Artyom</h1>
-// //     </div>
-// //   )
-// // }
-// import './App.css'
-// import { useState, useEffect} from 'react'
-
-// const  mission = "Artyom"
-// const  crew =  7
-
-// /* return(
-//   <div>
-//     <h1>{mission}</h1>
-//     <p>crew:{crew}</p>
-//     <p>Days remaining:{10 -3}</p>
-//   </div>
-// ) */
-
-
-// export default function App() {
-
-//   return (
-
-//     <div className="dashboard">
-//       <h1>My Dashboard</h1>
-//       <p>May 20, 2026</p>
-//       <ISSCard/>
-//       <Artyom/>   
-//       <PeopleInSpace/>
-//     </div>
-    
-
-//   )
-// }
-
-// function ISSCard() {
-//   return (
-//     <div className="card">
-//       <h2>ISS Position</h2>
-//       <p>Latitude: 42.36</p>
-//       <p>Longitude: -71.05</p>
-//     </div>  
-//   )
-// }
-
-
-// function Artyom() {
-//   return (
-//     <div className="Artyom">
-//       <h2>Hello</h2>
-//       <p>Latitude: 42.36</p>
-//       <p>Longitude: -71.05</p>
-//     </div>
-//   )
-// }
-
 import "./App.css";
 import { useEffect, useState } from "react";
 
@@ -67,6 +7,7 @@ export default function App() {
   const [people, setPeople] = useState([]);
   const [photo, setPhoto] = useState(null);
   const [asteroids, setAsteroids] = useState([]);
+  const [solar, setsolar] = useState(null);
 
   // =========================
   // ISS POSITION
@@ -112,7 +53,7 @@ export default function App() {
   useEffect(() => {
     const fetchPhoto = async () => {
       const res = await fetch(
-       'https://api.nasa.gov/planetary/apod?api_key=${import.meta.env.VITE_NASA_KEY}'
+       `https://api.nasa.gov/planetary/apod?api_key=${import.meta.env.VITE_NASA_KEY}`
       );
 
       const data = await res.json();
@@ -267,9 +208,51 @@ export default function App() {
             <p>
               {photo?.explanation}
             </p>
-          </div>
+          </div>   
         </div>
       </div>
+      {/* SOLAR SYSTEM */}
+
+<div className="solar-system">
+
+  <h2>☀️ SOLAR SYSTEM</h2>
+
+  <div className="planets">
+
+    <div className="planet mercury">
+      <span>Mercury</span>
+    </div>
+
+    <div className="planet venus">
+      <span>Venus</span>
+    </div>
+
+    <div className="planet earth">
+      <span>Earth</span>
+    </div>
+
+    <div className="planet mars">
+      <span>Mars</span>
+    </div>
+
+    <div className="planet jupiter">
+      <span>Jupiter</span>
+    </div>
+
+    <div className="planet saturn">
+      <span>Saturn</span>
+    </div>
+
+    <div className="planet uranus">
+      <span>Uranus</span>
+    </div>
+
+    <div className="planet neptune">
+      <span>Neptune</span>
+    </div>
+
+  </div>
+</div>
     </div>
   );
 }
